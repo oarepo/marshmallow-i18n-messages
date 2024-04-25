@@ -1,0 +1,277 @@
+# Czech translations for PROJECT.
+# Copyright (C) 2024 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2024.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2024-04-24 11:29+0200\n"
+"PO-Revision-Date: 2024-04-24 11:33+0200\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: cs\n"
+"Language-Team: cs <LL@li.org>\n"
+"Plural-Forms: nplurals=3; plural=((n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.14.0\n"
+
+#: marshmallow.fields.AwareDateTime.error_messages:1
+#: marshmallow.fields.DateTime.error_messages:1
+#: marshmallow.fields.NaiveDateTime.error_messages:1
+#: marshmallow.fields.Time.error_messages:1
+#: marshmallow_utils.fields.tzdatetime.TZDateTime.error_messages:1
+msgid "Not a valid {obj_type}."
+msgstr "Neplatný typ objektu {obj_type}."
+
+#: marshmallow.fields.AwareDateTime.error_messages:1
+#: marshmallow.fields.DateTime.error_messages:1
+#: marshmallow.fields.NaiveDateTime.error_messages:1
+#: marshmallow.fields.Time.error_messages:1
+#: marshmallow_utils.fields.tzdatetime.TZDateTime.error_messages:1
+msgid "Not a valid {awareness} {obj_type}."
+msgstr "Neplatná {awareness} {obj_type}."
+
+#: marshmallow.fields.AwareDateTime.error_messages:1
+#: marshmallow.fields.DateTime.error_messages:1
+#: marshmallow.fields.NaiveDateTime.error_messages:1
+#: marshmallow.fields.Time.error_messages:1
+#: marshmallow_utils.fields.tzdatetime.TZDateTime.error_messages:1
+msgid "\"{input}\" cannot be formatted as a {obj_type}."
+msgstr "\"{input}\" nemůže být formátován jako typ {obj_type}."
+
+#: marshmallow.fields.Boolean.error_messages:1
+msgid "Not a valid boolean."
+msgstr "Není platná pravdivostní hodnota."
+
+#: marshmallow.fields.Constant.error_messages:1
+#: marshmallow.fields.Field.error_messages:1
+#: marshmallow.fields.Function.error_messages:1
+#: marshmallow.fields.Inferred.error_messages:1
+#: marshmallow.fields.Method.error_messages:1
+#: marshmallow.fields.Raw.error_messages:1
+#: marshmallow_utils.fields.contrib.Function.error_messages:1
+#: marshmallow_utils.fields.contrib.Method.error_messages:1
+#: marshmallow_utils.fields.generated.GenFunction.error_messages:1
+#: marshmallow_utils.fields.generated.GenMethod.error_messages:1
+#: marshmallow_utils.fields.links.Link.error_messages:1
+#: marshmallow_utils.fields.links.Links.error_messages:1
+#: marshmallow_utils.schemas.identifier.IdentifierSchema.error_messages:1
+msgid "Missing data for required field."
+msgstr "Chybí povinné pole."
+
+#: marshmallow.fields.Constant.error_messages:1
+#: marshmallow.fields.Field.error_messages:1
+#: marshmallow.fields.Function.error_messages:1
+#: marshmallow.fields.Inferred.error_messages:1
+#: marshmallow.fields.Method.error_messages:1
+#: marshmallow.fields.Raw.error_messages:1
+#: marshmallow_utils.fields.contrib.Function.error_messages:1
+#: marshmallow_utils.fields.contrib.Method.error_messages:1
+#: marshmallow_utils.fields.generated.GenFunction.error_messages:1
+#: marshmallow_utils.fields.generated.GenMethod.error_messages:1
+#: marshmallow_utils.fields.links.Link.error_messages:1
+#: marshmallow_utils.fields.links.Links.error_messages:1
+msgid "Field may not be null."
+msgstr "Pole nemůže být prázdné (null)."
+
+#: marshmallow.fields.Constant.error_messages:1
+#: marshmallow.fields.Field.error_messages:1
+#: marshmallow.fields.Function.error_messages:1
+#: marshmallow.fields.Inferred.error_messages:1
+#: marshmallow.fields.Method.error_messages:1
+#: marshmallow.fields.Raw.error_messages:1
+#: marshmallow.validate.And.error_messages:1
+#: marshmallow_utils.fields.contrib.Function.error_messages:1
+#: marshmallow_utils.fields.contrib.Method.error_messages:1
+#: marshmallow_utils.fields.generated.GenFunction.error_messages:1
+#: marshmallow_utils.fields.generated.GenMethod.error_messages:1
+#: marshmallow_utils.fields.links.Link.error_messages:1
+#: marshmallow_utils.fields.links.Links.error_messages:1
+msgid "Invalid value."
+msgstr "Chybná hodnota."
+
+#: marshmallow.fields.Date.error_messages:1
+#: marshmallow_utils.fields.isodate.ISODateString.error_messages:1
+msgid "Not a valid date."
+msgstr "Není platné datum."
+
+#: marshmallow.fields.Date.error_messages:1
+#: marshmallow_utils.fields.isodate.ISODateString.error_messages:1
+msgid "\"{input}\" cannot be formatted as a date."
+msgstr "Pole \"{input}\" nemůže být formátováno jako datum."
+
+#: marshmallow.fields.Decimal.error_messages:1
+#: marshmallow.fields.Float.error_messages:1
+msgid "Special numeric values (nan or infinity) are not permitted."
+msgstr ""
+"Speciální numerické hodnoty (jako nan - není číslo, nekonečno) nejsou "
+"povoleny."
+
+#: marshmallow.fields.Dict.error_messages:1
+#: marshmallow.fields.Mapping.error_messages:1
+msgid "Not a valid mapping type."
+msgstr "Není platný typ mapování (dict a podobné)."
+
+#: marshmallow.fields.Email.error_messages:1
+#: marshmallow.validate.Email.error_messages:1
+msgid "Not a valid email address."
+msgstr "Není platná email adresa."
+
+#: marshmallow.fields.Enum.error_messages:1
+#: marshmallow.validate.OneOf.error_messages:1
+msgid "Must be one of: {choices}."
+msgstr "Musí být jedna z hodnot: {choices}."
+
+#: marshmallow.fields.IP.error_messages:1
+msgid "Not a valid IP address."
+msgstr "Není platná IP adresa."
+
+#: marshmallow.fields.IPInterface.error_messages:1
+msgid "Not a valid IP interface."
+msgstr "Není platné IP rozhraní."
+
+#: marshmallow.fields.IPv4.error_messages:1
+msgid "Not a valid IPv4 address."
+msgstr "Není platná IPv4 adresa."
+
+#: marshmallow.fields.IPv4Interface.error_messages:1
+msgid "Not a valid IPv4 interface."
+msgstr "Není platné IPv4 rozhraní."
+
+#: marshmallow.fields.IPv6.error_messages:1
+msgid "Not a valid IPv6 address."
+msgstr "Neplatná IPv6 adresa."
+
+#: marshmallow.fields.IPv6Interface.error_messages:1
+msgid "Not a valid IPv6 interface."
+msgstr "Neplatné IPv6 rozhraní."
+
+#: marshmallow.fields.Integer.error_messages:1
+msgid "Not a valid integer."
+msgstr "Musí být celé číslo."
+
+#: marshmallow.fields.List.error_messages:1
+msgid "Not a valid list."
+msgstr "Musí být seznam hodnot."
+
+#: marshmallow.fields.Nested.error_messages:1
+#: marshmallow.fields.Pluck.error_messages:1
+#: marshmallow_utils.fields.nestedattr.NestedAttribute.error_messages:1
+msgid "Invalid type."
+msgstr "Neplatný typ."
+
+#: marshmallow.fields.Number.error_messages:1
+msgid "Not a valid number."
+msgstr "Neplatné číslo."
+
+#: marshmallow.fields.Number.error_messages:1
+msgid "Number too large."
+msgstr "Číslo je příliš velké."
+
+#: marshmallow.fields.String.error_messages:1
+#: marshmallow_utils.fields.babel.BabelFormatField.error_messages:1
+#: marshmallow_utils.fields.babel.FormatDate.error_messages:1
+#: marshmallow_utils.fields.babel.FormatDatetime.error_messages:1
+#: marshmallow_utils.fields.babel.FormatEDTF.error_messages:1
+#: marshmallow_utils.fields.babel.FormatTime.error_messages:1
+#: marshmallow_utils.fields.edtfdatestring.EDTFDateString.error_messages:1
+#: marshmallow_utils.fields.edtfdatestring.EDTFDateTimeString.error_messages:1
+#: marshmallow_utils.fields.isolanguage.ISOLangString.error_messages:1
+#: marshmallow_utils.fields.sanitizedhtml.SanitizedHTML.error_messages:1
+#: marshmallow_utils.fields.sanitizedunicode.SanitizedUnicode.error_messages:1
+#: marshmallow_utils.fields.strippedhtml.StrippedHTML.error_messages:1
+#: marshmallow_utils.fields.trimmed.TrimmedString.error_messages:1
+msgid "Not a valid string."
+msgstr "Není hodnota typu řetězec."
+
+#: marshmallow.fields.String.error_messages:1
+#: marshmallow_utils.fields.babel.BabelFormatField.error_messages:1
+#: marshmallow_utils.fields.babel.FormatDate.error_messages:1
+#: marshmallow_utils.fields.babel.FormatDatetime.error_messages:1
+#: marshmallow_utils.fields.babel.FormatEDTF.error_messages:1
+#: marshmallow_utils.fields.babel.FormatTime.error_messages:1
+#: marshmallow_utils.fields.edtfdatestring.EDTFDateString.error_messages:1
+#: marshmallow_utils.fields.edtfdatestring.EDTFDateTimeString.error_messages:1
+#: marshmallow_utils.fields.isolanguage.ISOLangString.error_messages:1
+#: marshmallow_utils.fields.sanitizedhtml.SanitizedHTML.error_messages:1
+#: marshmallow_utils.fields.sanitizedunicode.SanitizedUnicode.error_messages:1
+#: marshmallow_utils.fields.strippedhtml.StrippedHTML.error_messages:1
+#: marshmallow_utils.fields.trimmed.TrimmedString.error_messages:1
+msgid "Not a valid utf-8 string."
+msgstr "Není platná utf-8 hodnota."
+
+#: marshmallow.fields.TimeDelta.error_messages:1
+msgid "Not a valid period of time."
+msgstr "Není platné časové období."
+
+#: marshmallow.fields.TimeDelta.error_messages:1
+msgid "{input!r} cannot be formatted as a timedelta."
+msgstr "{input!r} nemůže být formátováno jako časový přírůstek."
+
+#: marshmallow.fields.Tuple.error_messages:1
+msgid "Not a valid tuple."
+msgstr "Není platná hodnota typu Tuple."
+
+#: marshmallow.fields.Url.error_messages:1
+#: marshmallow.validate.URL.error_messages:1
+#: marshmallow_utils.fields.url.URL.error_messages:1
+#: marshmallow_utils.fields.url.URLValidator.error_messages:1
+msgid "Not a valid URL."
+msgstr "Není platné URL."
+
+#: marshmallow.fields.UUID.error_messages:1
+msgid "Not a valid UUID."
+msgstr "Není platné UUID."
+
+#: marshmallow.validate.ContainsNoneOf.error_messages:1
+msgid "One or more of the choices you made was in: {values}."
+msgstr "Jedna nebo více hodnot z vašeho výběru byla z: {values}."
+
+#: marshmallow.validate.ContainsOnly.error_messages:1
+msgid "One or more of the choices you made was not in: {choices}."
+msgstr "Jedna nebo více hodnot z vašeho výběru nebyla z: {choices}."
+
+#: marshmallow.validate.Equal.error_messages:1
+msgid "Must be equal to {other}."
+msgstr "Hodnota musí být rovna \"{other}\"."
+
+#: marshmallow.validate.NoneOf.error_messages:1
+#: marshmallow.validate.Predicate.error_messages:1
+msgid "Invalid input."
+msgstr "Špatný vstup."
+
+#: marshmallow.validate.Regexp.error_messages:1
+msgid "String does not match expected pattern."
+msgstr "Řetězec nesleduje očekávaný vzor."
+
+#: marshmallow_utils.fields.babel.BabelGettextDictField.error_messages:1
+msgid "Not a valid dictionary."
+msgstr "Není platným slovníkem."
+
+#: marshmallow_utils.fields.babel.BabelGettextDictField.error_messages:1
+msgid "Translation not found for "
+msgstr "Překlad nenalezen pro hodnotu "
+
+#: marshmallow_utils.fields.identifier.IdentifierSet.error_messages:1
+msgid "Only one identifier per scheme is allowed."
+msgstr "Je povolen pouze jeden identifikátor per schema."
+
+#: marshmallow_utils.fields.edtfdatestring.EDTFValidator.error_messages:1
+msgid "Please provide a valid date or interval."
+msgstr "Prosím zadejte platný datum nebo interval dat."
+
+#: marshmallow_utils.schemas.identifier.IdentifierSchema.error_messages:1
+msgid "No valid scheme recognized for identifier."
+msgstr "Schéma pro identifikátor nebylo nalezeno."
+
+#: marshmallow_utils.schemas.identifier.IdentifierSchema.error_messages:1
+msgid "Invalid {scheme} identifier."
+msgstr "Špatné schéma identifikátoru: {scheme}."
+
+#: marshmallow_utils.schemas.identifier.IdentifierSchema.error_messages:1
+msgid "Invalid scheme."
+msgstr "Špatné schéma."
+
