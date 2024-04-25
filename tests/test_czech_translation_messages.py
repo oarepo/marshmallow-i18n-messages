@@ -34,7 +34,7 @@ def check_field(fld_class, value, expected_error, **kwargs):
 
 
 def test_required(babel_cs):
-    check_field(fields.Str, None, 'Chybí povinné pole.', required=True)
+    check_field(fields.Str, MISSING, 'Chybí povinné pole.', required=True)
 
 
 def test_null(babel_cs):

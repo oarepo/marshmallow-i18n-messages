@@ -15,7 +15,7 @@ def applied_translations():
 @pytest.fixture()
 def babel_cs():
     # add czech babel loader
-    locale_path = str(Path(__file__).parent.parent / 'marshmallow_translations/translations')
+    locale_path = str(Path(__file__).parent.parent / 'marshmallow_i18n_messages/translations')
     gettext.bindtextdomain('messages', locale_path)
     cs = gettext.translation('messages', locale_path, ['cs'])
     gettext.textdomain('messages')
