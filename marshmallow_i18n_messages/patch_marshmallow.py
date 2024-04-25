@@ -1,4 +1,5 @@
 from gettext import gettext
+from threading import Lock
 
 from speaklater import make_lazy_gettext, _LazyString
 
@@ -11,18 +12,27 @@ def lazy_gettext(*args, **kwargs):
     return make_lazy_gettext(lambda: gettext)(*args, **kwargs)
 
 
+add_i18n_to_marshmallow_called = False
+add_i18n_to_marshmallow_lock = Lock()
+
+
 def add_i18n_to_marshmallow():
-    for clz in MarshmallowIterator().classes():
-        if hasattr(clz, "error_messages"):
-            for k, v in clz.error_messages.items():
-                clz.error_messages[k] = lazy_gettext(v)
-        if hasattr(clz, "default_error_messages"):
-            for k, v in clz.default_error_messages.items():
-                clz.default_error_messages[k] = lazy_gettext(v)
-        if hasattr(clz, "default_message"):
-            clz.default_message = lazy_gettext(clz.default_message)
-        if hasattr(clz, "default_error_message"):
-            clz.default_error_message = lazy_gettext(clz.default_error_message)
+    global add_i18n_to_marshmallow_called
+    with add_i18n_to_marshmallow_lock:
+        if add_i18n_to_marshmallow_called:
+            return
+        for clz in MarshmallowIterator().classes():
+            if hasattr(clz, "error_messages"):
+                for k, v in clz.error_messages.items():
+                    clz.error_messages[k] = lazy_gettext(v)
+            if hasattr(clz, "default_error_messages"):
+                for k, v in clz.default_error_messages.items():
+                    clz.default_error_messages[k] = lazy_gettext(v)
+            if hasattr(clz, "default_message"):
+                clz.default_message = lazy_gettext(clz.default_message)
+            if hasattr(clz, "default_error_message"):
+                clz.default_error_message = lazy_gettext(clz.default_error_message)
+        add_i18n_to_marshmallow_called = True
 
     def patch_make_error(previous_make_error):
         def apply_kwargs(param, **kwargs):
