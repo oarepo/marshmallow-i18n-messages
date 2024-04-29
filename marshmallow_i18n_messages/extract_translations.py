@@ -16,6 +16,21 @@ def extract_translations(outfile):
         extract_error_message(by_msgid, clz, getattr(clz, "default_message", ''), po)
         extract_error_message(by_msgid, clz, getattr(clz, "default_error_message", ''), po)
 
+    for validator in MarshmallowIterator().validators():
+        extract_error_message(by_msgid, validator, getattr(validator, "default_message", ''), po)
+        extract_error_message(by_msgid, validator, getattr(validator, "default_error_message", ''), po)
+        extract_error_message(by_msgid, validator, getattr(validator, "message", ''), po)
+        for name, attr in validator.__dict__.items():
+            if name.startswith("message_"):
+                extract_error_message(by_msgid, validator, attr, po)
+
+    for entry in by_msgid.values():
+        po.append(entry)
+        for idx, occurrence in enumerate(entry.occurrences):
+            if isinstance(occurrence[1], str):
+                entry.occurrences[idx] = (occurrence[0], int(occurrence[1]))
+        entry.occurrences = list(set(entry.occurrences))
+
     po.save(outfile)
 
 

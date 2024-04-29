@@ -54,3 +54,7 @@ def test_equal(babel_cs):
     check_field(fields.Str, 'a', 'Hodnota musí být rovna "b".',
                 validate=[validate.Equal('b')])
 
+
+def test_range(babel_cs):
+    check_field(fields.Int, 1, 'Musí být větší nebo rovno 2 a menší nebo rovno 3.',
+                validate=[validate.Range(2, 3)])

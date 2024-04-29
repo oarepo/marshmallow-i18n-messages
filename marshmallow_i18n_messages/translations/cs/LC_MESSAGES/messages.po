@@ -275,3 +275,48 @@ msgstr "Špatné schéma identifikátoru: {scheme}."
 msgid "Invalid scheme."
 msgstr "Špatné schéma."
 
+#: marshmallow.validate.Length.error_messages:1
+msgid "Shorter than minimum length {min}."
+msgstr "Hodnota je kratší než minimální délka {min}."
+
+#: marshmallow.validate.Length.error_messages:1
+msgid "Longer than maximum length {max}."
+msgstr "Hodnota je delší než maximální délka {max}."
+
+#: marshmallow.validate.Length.error_messages:1
+msgid "Length must be between {min} and {max}."
+msgstr "Hodnota musí být mezi {min} a {max}."
+
+#: marshmallow.validate.Length.error_messages:1
+#, fuzzy
+msgid "Length must be {equal}."
+msgstr "Hodnota musí být rovna \"{other}\"."
+
+#: marshmallow.validate.Range.error_messages:1
+msgid "Must be {min_op} {{min}}."
+msgstr "Musí být {min_op} {{min}}."
+
+#: marshmallow.validate.Range.error_messages:1
+msgid "Must be {max_op} {{max}}."
+msgstr "Musí být {max_op} {{max}}."
+
+#: marshmallow.validate.Range.error_messages:1
+msgid "Must be {min_op} {{min}} and {max_op} {{max}}."
+msgstr "Musí být {min_op} {{min}} a {max_op} {{max}}."
+
+#: marshmallow.validate.Range.error_messages:1
+msgid "greater than or equal to"
+msgstr "větší nebo rovno"
+
+#: marshmallow.validate.Range.error_messages:1
+msgid "greater than"
+msgstr "větší než"
+
+#: marshmallow.validate.Range.error_messages:1
+msgid "less than or equal to"
+msgstr "menší nebo rovno"
+
+#: marshmallow.validate.Range.error_messages:1
+msgid "less than"
+msgstr "menší než"
+
