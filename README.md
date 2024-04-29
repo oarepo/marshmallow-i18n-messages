@@ -17,7 +17,7 @@ locale.
 
 ## Invenio usage
 
-In Invenio, just using the library is enough. It will be automatically used when invenio boots up.
+In Invenio, call the statements above on top of the `invenio.cfg` file, before any other imports.
 
 ## Contributing new translations
 
