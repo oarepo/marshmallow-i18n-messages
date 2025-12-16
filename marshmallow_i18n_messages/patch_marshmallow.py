@@ -29,9 +29,11 @@ def add_i18n_to_marshmallow(gettext_impl=_lazy_gettext):
             if isinstance(param, dict):
                 for k, v in list(param.items()):
                     param[k] = apply_kwargs(inst, v, **kwargs)
+                return param
             elif isinstance(param, list):
                 for i, v in enumerate(param):
                     param[i] = apply_kwargs(inst, v, **kwargs)
+                return param
             return str(param).format(**kwargs)
 
         def make_error_i18n(self: fields.Field, key: str, **kwargs) -> ValidationError:
@@ -84,7 +86,7 @@ def patch_validators(validators, gettext_impl):
 def patch_validator(validator, gettext_impl):
     patch_class(validator, gettext_impl)
     # special handling for validator properties
-    if hasattr(validator, 'message'):
+    if hasattr(validator, "message"):
         if isinstance(validator.message, str):
             validator.message = gettext_impl(validator.message)
     for name, attr in inspect.getmembers(validator):
