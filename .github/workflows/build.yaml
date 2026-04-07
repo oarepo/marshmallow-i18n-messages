@@ -12,7 +12,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: "3.10"
+          python-version: "3.12"
       - name: Cache pip
         uses: actions/cache@v4
         with:
@@ -30,7 +30,8 @@ jobs:
 
       - name: Build package to publish
         run: |
-          .venv/bin/python setup.py sdist bdist_wheel
+          .venv/bin/pip install build
+          .venv/bin/python -m build --sdist --wheel
 
       - name: Freeze packages
         run: |
