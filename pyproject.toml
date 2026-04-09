@@ -1,3 +1,53 @@
 [build-system]
-requires = ["setuptools", "wheel"]
-build-backend = "setuptools.build_meta"
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "marshmallow-i18n-messages"
+version = "0.2.0"
+description = "A patch to marshmallow to allow to translate marshmallow messages via GNU gettext"
+readme = "README.md"
+license = { file = "LICENSE" }
+authors = [
+    { name = "Miroslav Simek", email = "miroslav.simek@cesnet.cz" },
+]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+requires-python = ">=3.12"
+dependencies = [
+    "marshmallow",
+    "marshmallow-utils",
+    "babel",
+    "speaklater",
+]
+
+[project.optional-dependencies]
+tests = [
+    "pytest",
+]
+dev = [
+    "polib",
+]
+
+[project.urls]
+Homepage = "https://github.com/oarepo/marshmallow-i18n-messages"
+"Bug Tracker" = "https://github.com/oarepo/marshmallow-i18n-messages/issues"
+
+[project.entry-points."invenio_i18n.translations"]
+messages = "marshmallow_i18n_messages"
+
+[project.entry-points."invenio_config.module"]
+marshmallow_i18n_messages = "marshmallow_i18n_messages.invenio_support"
+
+[tool.hatch.build.targets.wheel]
+packages = ["marshmallow_i18n_messages"]
+
+[tool.hatch.build.targets.sdist]
+include = [
+    "marshmallow_i18n_messages/",
+    "README.md",
+    "LICENSE",
+]
