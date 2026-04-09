@@ -20,45 +20,43 @@ msgstr ""
 
 #, python-brace-format
 msgid "Not a valid {obj_type}."
-msgstr "Neplatný typ objektu {obj_type}."
+msgstr "Neplatný objekt typu {obj_type}."
 
 #, python-brace-format
 msgid "Not a valid {awareness} {obj_type}."
-msgstr "Neplatná {awareness} {obj_type}."
+msgstr "Neplatná hodnota typu {awareness} {obj_type}."
 
 #, python-brace-format
 msgid "\"{input}\" cannot be formatted as a {obj_type}."
-msgstr "\"{input}\" nemůže být formátován jako typ {obj_type}."
+msgstr "„{input}“ nelze převést na hodnotu typu {obj_type}."
 
 msgid "Not a valid boolean."
-msgstr "Není platná pravdivostní hodnota."
+msgstr "Neplatná booleovská hodnota."
 
 msgid "Missing data for required field."
 msgstr "Chybí povinné pole."
 
 msgid "Field may not be null."
-msgstr "Pole nemůže být prázdné (null)."
+msgstr "Pole nesmí být prázdné (null)."
 
 msgid "Invalid value."
-msgstr "Chybná hodnota."
+msgstr "Neplatná hodnota."
 
 msgid "Not a valid date."
-msgstr "Není platné datum."
+msgstr "Neplatné datum."
 
 #, python-brace-format
 msgid "\"{input}\" cannot be formatted as a date."
-msgstr "Pole \"{input}\" nemůže být formátováno jako datum."
+msgstr "„{input}“ nelze převést na datum."
 
 msgid "Special numeric values (nan or infinity) are not permitted."
-msgstr ""
-"Speciální numerické hodnoty (jako nan - není číslo, nekonečno) nejsou "
-"povoleny."
+msgstr "Speciální číselné hodnoty (NaN nebo nekonečno) nejsou povoleny."
 
 msgid "Not a valid mapping type."
-msgstr "Není platný typ mapování (dict a podobné)."
+msgstr "Neplatný mapovací typ."
 
 msgid "Not a valid email address."
-msgstr "Není platná email adresa."
+msgstr "Neplatná e-mailová adresa."
 
 #, python-brace-format
 msgid "Must be one of: {choices}."
@@ -77,16 +75,16 @@ msgid "Not a valid IPv4 interface."
 msgstr "Není platné IPv4 rozhraní."
 
 msgid "Not a valid IPv6 address."
-msgstr "Neplatná IPv6 adresa."
+msgstr "Neplatná adresa IPv6."
 
 msgid "Not a valid IPv6 interface."
-msgstr "Neplatné IPv6 rozhraní."
+msgstr "Neplatné rozhraní IPv6."
 
 msgid "Not a valid integer."
-msgstr "Musí být celé číslo."
+msgstr "Neplatné celé číslo."
 
 msgid "Not a valid list."
-msgstr "Musí být seznam hodnot."
+msgstr "Neplatný seznam."
 
 msgid "Invalid type."
 msgstr "Neplatný typ."
@@ -98,56 +96,56 @@ msgid "Number too large."
 msgstr "Číslo je příliš velké."
 
 msgid "Not a valid string."
-msgstr "Není hodnota typu řetězec."
+msgstr "Neplatný řetězec."
 
 msgid "Not a valid utf-8 string."
-msgstr "Není platná utf-8 hodnota."
+msgstr "Neplatný řetězec v kódování UTF-8."
 
 msgid "Not a valid period of time."
-msgstr "Není platné časové období."
+msgstr "Neplatný časový interval."
 
 #, python-brace-format
 msgid "{input!r} cannot be formatted as a timedelta."
-msgstr "{input!r} nemůže být formátováno jako časový přírůstek."
+msgstr "{input!r} nelze převést na časový interval."
 
 msgid "Not a valid tuple."
-msgstr "Není platná hodnota typu Tuple."
+msgstr "Neplatná n-tice (tuple)."
 
 msgid "Not a valid URL."
-msgstr "Není platné URL."
+msgstr "Neplatná URL adresa."
 
 msgid "Not a valid UUID."
-msgstr "Není platné UUID."
+msgstr "Neplatné UUID."
 
 msgid "Not a valid dictionary."
-msgstr "Není platným slovníkem."
+msgstr "Neplatný slovník."
 
 msgid "Translation not found for "
-msgstr "Překlad nenalezen pro hodnotu "
+msgstr "Překlad nebyl nalezen pro "
 
 msgid "Only one identifier per scheme is allowed."
-msgstr "Je povolen pouze jeden identifikátor per schema."
+msgstr "Pro každé schéma je povolen pouze jeden identifikátor."
 
 msgid "Duplicated identifier entry is not allowed."
 msgstr "Duplicitní hodnota identifikátoru není povolena."
 
 msgid "No valid scheme recognized for identifier."
-msgstr "Schéma pro identifikátor nebylo nalezeno."
+msgstr "Pro identifikátor nebylo rozpoznáno platné schéma."
 
 #, python-brace-format
 msgid "Invalid {scheme} identifier."
-msgstr "Špatné schéma identifikátoru: {scheme}."
+msgstr "Neplatný identifikátor schématu {scheme}."
 
 msgid "Invalid scheme."
-msgstr "Špatné schéma."
+msgstr "Neplatné schéma."
 
 #, python-brace-format
-msgid "One or more of the choices you made was in: {values}."
-msgstr "Jedna nebo více hodnot z vašeho výběru byla z: {values}."
+msgid "One or více of the choices you made was in: {values}."
+msgstr "Jedna nebo více zvolených hodnot byla mezi: {values}."
 
 #, python-brace-format
 msgid "One or more of the choices you made was not in: {choices}."
-msgstr "Jedna nebo více hodnot z vašeho výběru nebyla z: {choices}."
+msgstr "Jedna nebo více zvolených hodnot nebyla mezi: {choices}."
 
 #, python-brace-format
 msgid "Must be equal to {other}."
@@ -163,14 +161,14 @@ msgstr "Hodnota je delší než maximální délka {max}."
 
 #, python-brace-format
 msgid "Length must be between {min} and {max}."
-msgstr "Hodnota musí být mezi {min} a {max}."
+msgstr "Délka musí být mezi {min} a {max} znaky/prvky."
 
 #, python-brace-format
 msgid "Length must be {equal}."
 msgstr "Délka musí být rovna {equal}."
 
 msgid "Invalid input."
-msgstr "Špatný vstup."
+msgstr "Neplatný vstup."
 
 #, python-brace-format
 msgid "Must be {min_op} {{min}}."
@@ -197,7 +195,7 @@ msgid "less than"
 msgstr "menší než"
 
 msgid "String does not match expected pattern."
-msgstr "Řetězec nesleduje očekávaný vzor."
+msgstr "Řetězec neodpovídá očekávanému vzoru."
 
 #, python-brace-format
 msgid "Must be greater than or equal to {min} and less than or equal to {max}."
@@ -233,4 +231,3 @@ msgstr "Musí být větší než {min}."
 
 #~ msgid "Please provide a valid date or interval."
 #~ msgstr "Prosím zadejte platný datum nebo interval dat."
-
