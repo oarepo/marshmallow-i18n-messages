@@ -12,6 +12,7 @@ and writes them as translatable strings into a PO/POT file.
 """
 
 from pathlib import Path
+from typing import Any
 
 import polib
 
@@ -29,7 +30,7 @@ extra_translated_strings = [
 ]
 
 
-def extract_translations(outfile: Path):
+def extract_translations(outfile: Path) -> None:
     """Scan all marshmallow classes and validators for error messages and write them to *outfile*.
 
     Existing PO entries are preserved; new ones are appended. The file is saved on completion.
@@ -93,7 +94,12 @@ def extract_translations(outfile: Path):
     po.save(outfile)
 
 
-def extract_error_messages_from_dict(by_msgid, clz, error_messages, po):
+def extract_error_messages_from_dict(
+    by_msgid: dict[str, polib.POEntry],
+    clz: type[Any],
+    error_messages: dict[str, Any],
+    po: polib.POFile,
+) -> None:
     """Extract all error message strings from *error_messages* into the PO file.
 
     :param by_msgid: Known msgid→POEntry mapping; updated in place.
@@ -105,7 +111,9 @@ def extract_error_messages_from_dict(by_msgid, clz, error_messages, po):
         extract_error_message(by_msgid, clz, v, po)
 
 
-def extract_error_message(by_msgid, clz, msg, po):
+def extract_error_message(
+    by_msgid: dict[str, polib.POEntry], clz: type[Any], msg: str, po: polib.POFile
+) -> None:
     """Ensure a single error message string is present in the PO file.
 
     Creates a new POEntry if *msg* is not yet tracked. Empty values are ignored.

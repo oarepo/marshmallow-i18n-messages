@@ -8,6 +8,9 @@
 """Iterators for discovering marshmallow classes and validators."""
 
 import inspect
+from collections.abc import Callable, Iterator
+from types import ModuleType
+from typing import Any
 
 
 class MarshmallowIterator:
@@ -16,7 +19,7 @@ class MarshmallowIterator:
     Lazily imports ``marshmallow`` and ``marshmallow_utils`` on first use.
     """
 
-    def classes(self):
+    def classes(self) -> Iterator[type[Any]]:
         """Yield every Field and Schema subclass found in ``marshmallow`` and ``marshmallow_utils``."""
         import marshmallow
         import marshmallow_utils.fields
@@ -31,7 +34,7 @@ class MarshmallowIterator:
         yield from iter_module(marshmallow_utils.fields, is_marshmallow_class)
         yield from iter_module(marshmallow_utils.schemas, is_marshmallow_class)
 
-    def validators(self):
+    def validators(self) -> Iterator[type[Any]]:
         """Yield every Validator subclass found in ``marshmallow.validate``."""
         import marshmallow
         import marshmallow.validate
@@ -42,7 +45,9 @@ class MarshmallowIterator:
         yield from iter_module(marshmallow.validate, is_marshmallow_validator)
 
 
-def iter_module(python_module, condition):
+def iter_module(
+    python_module: ModuleType, condition: Callable[[type[Any]], bool]
+) -> Iterator[type[Any]]:
     """Recursively yield classes from *python_module* that satisfy *condition*.
 
     Descends into sub-modules whose ``__name__`` starts with

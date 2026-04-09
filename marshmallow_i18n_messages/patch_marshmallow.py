@@ -17,6 +17,7 @@ before that call use :func:`enable_i18n` instead.
 
 import inspect
 import logging
+from collections.abc import Callable
 from gettext import gettext
 from threading import Lock
 from typing import Any
@@ -29,7 +30,7 @@ from marshmallow_i18n_messages.marshmallow_iterator import MarshmallowIterator
 log = logging.getLogger("marshmallow_i18n_messages")
 
 
-def _lazy_gettext(*args, **kwargs):
+def _lazy_gettext(*args: Any, **kwargs: Any) -> Any:
     """Return a lazy-translated string using the currently active ``gettext`` function.
 
     Translation is deferred until render time, so the locale may change between
@@ -44,7 +45,7 @@ add_i18n_to_marshmallow_called = False
 add_i18n_to_marshmallow_lock = Lock()
 
 
-def add_i18n_to_marshmallow(gettext_impl=_lazy_gettext):
+def add_i18n_to_marshmallow(gettext_impl: Callable[..., Any] = _lazy_gettext) -> None:
     """Patch all marshmallow classes and validators to use i18n error messages.
 
     Idempotent and thread-safe.  Also monkey-patches
@@ -71,13 +72,13 @@ def add_i18n_to_marshmallow(gettext_impl=_lazy_gettext):
         add_i18n_to_marshmallow_called = True
 
 
-def _patch_make_error():
+def _patch_make_error() -> None:
     """
     Monkey-patches :meth:`fields.Field.make_error` to support lazy strings.
     """
     previous_make_error = fields.Field.make_error
 
-    def apply_kwargs(inst, param, **kwargs):
+    def apply_kwargs(inst: Any, param: Any, **kwargs: Any) -> Any:
         if isinstance(param, dict):
             for k, v in list(param.items()):
                 param[k] = apply_kwargs(inst, v, **kwargs)
@@ -96,14 +97,14 @@ def _patch_make_error():
     fields.Field.make_error = make_error_i18n  # type: ignore
 
 
-def _patch_validation_error():
+def _patch_validation_error() -> None:
     """Patch :class:`~marshmallow.exceptions.ValidationError` to correctly wrap lazy strings into lists."""
     if getattr(ValidationError, "__init_replaced__", False):
         return
     setattr(ValidationError, "__init_replaced__", True)
     old_init = ValidationError.__init__
 
-    def new_init(self, messages=None, **kwargs):
+    def new_init(self: ValidationError, messages: Any = None, **kwargs: Any) -> None:
         if not isinstance(messages, (dict, list)):
             messages = [messages]
         old_init(self, messages, **kwargs)  # type: ignore
@@ -111,7 +112,7 @@ def _patch_validation_error():
     ValidationError.__init__ = new_init  # type: ignore
 
 
-def _patch_all_classes(gettext_impl):
+def _patch_all_classes(gettext_impl: Callable[..., Any]) -> None:
     """Patch every marshmallow field/schema and validator class found by :class:`~marshmallow_i18n_messages.marshmallow_iterator.MarshmallowIterator`.
 
     :param gettext_impl: Callable used to wrap raw message strings.
@@ -123,7 +124,7 @@ def _patch_all_classes(gettext_impl):
         _patch_validator(clz, gettext_impl, _visited=_visited)
 
 
-def _translate_dict(clz: Any, prop_name: str, gettext_impl):
+def _translate_dict(clz: Any, prop_name: str, gettext_impl: Callable[..., Any]) -> None:
     """Translate the values of a dictionary property on *clz* using *gettext_impl*."""
     d = getattr(clz, prop_name, {})
     for k, v in d.items():
@@ -131,7 +132,7 @@ def _translate_dict(clz: Any, prop_name: str, gettext_impl):
             d[k] = gettext_impl(v)
 
 
-def _translate_prop(clz: Any, prop_name: str, gettext_impl):
+def _translate_prop(clz: Any, prop_name: str, gettext_impl: Callable[..., Any]) -> None:
     """Translate a single property on *clz* using *gettext_impl*."""
     value = getattr(clz, prop_name, None)
     if isinstance(value, str):
@@ -140,9 +141,9 @@ def _translate_prop(clz: Any, prop_name: str, gettext_impl):
 
 def enable_i18n(
     clz: type[Schema] | type[fields.Field] | Schema | fields.Field,
-    gettext_impl=_lazy_gettext,
+    gettext_impl: Callable[..., Any] = _lazy_gettext,
     _visited: set | None = None,
-):
+) -> None:
     """Replace static error-message strings on *clz* with lazy-gettext wrappers.
 
     Handles ``error_messages``, ``default_error_messages``, ``default_message``,
@@ -187,7 +188,9 @@ def enable_i18n(
         _patch_fields(declared_fields, gettext_impl, _visited=_visited)
 
 
-def _patch_validators(validators, gettext_impl, *, _visited: set | None):
+def _patch_validators(
+    validators: Any, gettext_impl: Callable[..., Any], *, _visited: set | None
+) -> None:
     """Patch a validator or list of validators in place.
 
     :param validators: A single validator class/instance or a list thereof.
@@ -201,7 +204,9 @@ def _patch_validators(validators, gettext_impl, *, _visited: set | None):
         _patch_validator(validator, gettext_impl, _visited=_visited)
 
 
-def _patch_validator(validator, gettext_impl, *, _visited: set | None):
+def _patch_validator(
+    validator: Any, gettext_impl: Callable[..., Any], *, _visited: set | None
+) -> None:
     """Patch a single marshmallow validator instance or class for i18n.
 
     In addition to :func:`enable_i18n` handling, also wraps ``message`` and
@@ -231,7 +236,11 @@ def _patch_validator(validator, gettext_impl, *, _visited: set | None):
     # The po files must contain these translated strings as well.
 
 
-def _patch_fields(declared_fields, gettext_impl, _visited):
+def _patch_fields(
+    declared_fields: dict[str, fields.Field],
+    gettext_impl: Callable[..., Any],
+    _visited: set,
+) -> None:
     """Patch fields of a marshmallow schema class or instance."""
 
     # for each field, patch the field itself and if it's a nested field, patch the nested schema
@@ -244,7 +253,7 @@ def _patch_fields(declared_fields, gettext_impl, _visited):
                 nested = fld.schema
                 enable_i18n(nested, gettext_impl, _visited)
             except Exception:
-                log.warning(
+                log.error(
                     "Could not resolve nested schema for field %s, skipping",
                     fld,
                 )

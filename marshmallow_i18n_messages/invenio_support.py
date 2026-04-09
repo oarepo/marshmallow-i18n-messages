@@ -17,6 +17,8 @@ by calling :func:`~marshmallow_i18n_messages.patch_marshmallow.enable_i18n`
 on each service schema.
 """
 
+from typing import Any
+
 from invenio_base.signals import app_loaded
 from invenio_i18n import lazy_gettext
 
@@ -27,7 +29,7 @@ add_i18n_to_marshmallow(gettext_impl=lazy_gettext)
 
 
 @app_loaded.connect
-def app_loaded_signal(sender, app, **kwargs):
+def app_loaded_signal(sender: Any, app: Any, **kwargs: Any) -> None:
 
     with app.app_context():
         import logging
