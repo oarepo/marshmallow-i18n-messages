@@ -8,9 +8,13 @@
 """Iterators for discovering marshmallow classes and validators."""
 
 import inspect
-from collections.abc import Callable, Iterator
+import logging
+import pkgutil
+from collections.abc import Callable, Generator, Iterator
 from types import ModuleType
 from typing import Any
+
+log = logging.getLogger("marshmallow_i18n_messages")
 
 
 class MarshmallowIterator:
@@ -19,30 +23,45 @@ class MarshmallowIterator:
     Lazily imports ``marshmallow`` and ``marshmallow_utils`` on first use.
     """
 
-    def classes(self) -> Iterator[type[Any]]:
+    def classes(self) -> Generator[type[Any], None, None]:
         """Yield every Field and Schema subclass found in ``marshmallow`` and ``marshmallow_utils``."""
         import marshmallow
-        import marshmallow_utils.fields
-        import marshmallow_utils.schemas
+        import marshmallow_utils
 
         def is_marshmallow_class(member):
             return issubclass(member, (marshmallow.fields.Field, marshmallow.Schema))
 
-        yield from iter_module(marshmallow, is_marshmallow_class)
-        yield from iter_module(marshmallow.fields, is_marshmallow_class)
-        yield from iter_module(marshmallow_utils, is_marshmallow_class)
-        yield from iter_module(marshmallow_utils.fields, is_marshmallow_class)
-        yield from iter_module(marshmallow_utils.schemas, is_marshmallow_class)
+        yield from self.iter_module_tree(marshmallow, is_marshmallow_class)
+        yield from self.iter_module_tree(marshmallow_utils, is_marshmallow_class)
 
-    def validators(self) -> Iterator[type[Any]]:
+    def validators(self) -> Generator[type[Any], None, None]:
         """Yield every Validator subclass found in ``marshmallow.validate``."""
         import marshmallow
         import marshmallow.validate
+        import marshmallow_utils
 
         def is_marshmallow_validator(member):
             return issubclass(member, marshmallow.validate.Validator)
 
-        yield from iter_module(marshmallow.validate, is_marshmallow_validator)
+        yield from self.iter_module_tree(marshmallow, is_marshmallow_validator)
+        yield from self.iter_module_tree(marshmallow_utils, is_marshmallow_validator)
+
+    def iter_module_tree(
+        self, root_module: ModuleType, predicate: Callable[[Any], bool]
+    ) -> Generator[Any, None, None]:
+        """Recursively yield items from *root_module* and submodules that satisfy *predicate*."""
+        import importlib
+
+        yield from iter_module(root_module, predicate)
+
+        # Discover all submodules and yield items from them
+        for modinfo in pkgutil.walk_packages(
+            root_module.__path__, root_module.__name__ + "."
+        ):
+            try:
+                yield from iter_module(importlib.import_module(modinfo.name), predicate)
+            except Exception:
+                log.error("Can not iterate module %s", modinfo.name)
 
 
 def iter_module(
