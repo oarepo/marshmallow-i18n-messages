@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-04-14 13:32+0200\n"
+"POT-Creation-Date: 2026-04-14 15:15+0200\n"
 "PO-Revision-Date: 2026-04-14 13:28+0200\n"
 "Last-Translator: \n"
 "Language: de\n"
@@ -35,7 +35,7 @@ msgstr "\"{input}\" kann nicht als {obj_type} formatiert werden."
 
 #: marshmallow_utils.fields.identifier.IdentifierValueSet.error_messages:1
 msgid "Duplicated identifier entry is not allowed."
-msgstr "Doppelte Identifikatoreinträge sind nicht zulässig."
+msgstr "Ein doppelter Identifier-Eintrag ist nicht erlaubt."
 
 #: marshmallow.fields.Constant.error_messages:1
 #: marshmallow.fields.Field.error_messages:1
@@ -86,7 +86,7 @@ msgstr "Ungültiger Wert."
 #: marshmallow_utils.schemas.identifier.IdentifierSchema.error_messages:1
 #, python-brace-format
 msgid "Invalid {scheme} identifier."
-msgstr "Ungültiger {scheme}-Identifikator."
+msgstr "Ungültiger {scheme}-Identifier."
 
 #: marshmallow.validate.Length.error_messages:1
 #, python-brace-format
@@ -117,7 +117,7 @@ msgstr "Der Wert ist länger als die maximal zulässige Länge {max}."
 #: marshmallow_utils.fields.links.Links.error_messages:1
 #: marshmallow_utils.schemas.identifier.IdentifierSchema.error_messages:1
 msgid "Missing data for required field."
-msgstr "Für ein Pflichtfeld fehlen Daten."
+msgstr "Fehlende Daten für ein erforderliches Feld."
 
 #: marshmallow.validate.Equal.error_messages:1
 #, python-brace-format
@@ -148,7 +148,7 @@ msgstr "Muss {min_op} {{min}} sein."
 
 #: marshmallow_utils.schemas.identifier.IdentifierSchema.error_messages:1
 msgid "No valid scheme recognized for identifier."
-msgstr "Für den Identifikator wurde kein gültiges Schema erkannt."
+msgstr "Für den Identifier wurde kein gültiges Schema erkannt."
 
 #: marshmallow.fields.IP.error_messages:1
 msgid "Not a valid IP address."
@@ -196,7 +196,7 @@ msgstr "Kein gültiges Datum."
 
 #: marshmallow_utils.fields.babel.BabelGettextDictField.error_messages:1
 msgid "Not a valid dictionary."
-msgstr "Kein gültiges Wörterbuch."
+msgstr "Kein gültiges Dictionary."
 
 #: marshmallow.fields.Email.error_messages:1
 #: marshmallow.validate.Email.error_messages:1
@@ -205,7 +205,7 @@ msgstr "Keine gültige E-Mail-Adresse."
 
 #: marshmallow.fields.Integer.error_messages:1
 msgid "Not a valid integer."
-msgstr "Keine gültige Ganzzahl."
+msgstr "Keine gültiger Integer."
 
 #: marshmallow.fields.List.error_messages:1
 msgid "Not a valid list."
@@ -239,7 +239,7 @@ msgstr "Keine gültige Zeitspanne."
 #: marshmallow_utils.fields.strippedhtml.StrippedHTML.error_messages:1
 #: marshmallow_utils.fields.trimmed.TrimmedString.error_messages:1
 msgid "Not a valid string."
-msgstr "Keine gültige Zeichenkette."
+msgstr "Kein gültiger String."
 
 #: marshmallow.fields.Tuple.error_messages:1
 msgid "Not a valid tuple."
@@ -260,7 +260,7 @@ msgstr "Kein gültiges Tupel."
 #: marshmallow_utils.fields.strippedhtml.StrippedHTML.error_messages:1
 #: marshmallow_utils.fields.trimmed.TrimmedString.error_messages:1
 msgid "Not a valid utf-8 string."
-msgstr "Keine gültige UTF-8-Zeichenkette."
+msgstr "Kein gültiger UTF-8-String."
 
 #: marshmallow.fields.AwareDateTime.error_messages:1
 #: marshmallow.fields.DateTime.error_messages:1
@@ -296,11 +296,11 @@ msgstr "Eine oder mehrere Ihrer Auswahlen war nicht in {choices} enthalten."
 
 #: marshmallow_utils.fields.identifier.IdentifierSet.error_messages:1
 msgid "Only one identifier per scheme is allowed."
-msgstr "Pro Schema ist nur ein Identifikator zulässig."
+msgstr "Pro Schema ist nur ein Identifier zulässig."
 
 #: marshmallow_utils.fields.edtfdatestring.EDTFValidator.error_messages:1
 msgid "Please provide a valid date or interval."
-msgstr "Bitte geben Sie ein gültiges Datum oder Intervall an."
+msgstr "Bitte geben Sie ein gültiges Datum oder einen Datumsbereich an."
 
 #: marshmallow.validate.Length.error_messages:1
 #, python-brace-format
@@ -314,7 +314,7 @@ msgstr "Spezielle numerische Werte (NaN oder Unendlich) sind nicht erlaubt."
 
 #: marshmallow.validate.Regexp.error_messages:1
 msgid "String does not match expected pattern."
-msgstr "Die Zeichenkette entspricht nicht dem erwarteten Muster."
+msgstr "Der String entspricht nicht dem erwarteten Muster."
 
 #: marshmallow_utils.fields.babel.BabelGettextDictField.error_messages:1
 msgid "Translation not found for "
@@ -339,7 +339,7 @@ msgstr "kleiner oder gleich"
 #: marshmallow.fields.TimeDelta.error_messages:1
 #, python-brace-format
 msgid "{input!r} cannot be formatted as a timedelta."
-msgstr "{input!r} kann nicht als Zeitspanne formatiert werden."
+msgstr "{input!r} kann nicht als timedelta formatiert werden."
 
 #, python-brace-format
 msgid "Must be greater than or equal to {min} and less than or equal to {max}."
