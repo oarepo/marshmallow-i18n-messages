@@ -181,6 +181,9 @@ def enable_i18n(
     _translate_prop(clz, "default_message", gettext_impl)
     _translate_prop(clz, "default_error_message", gettext_impl)
 
+    # for edtfdatestring
+    _translate_prop(clz, "_error", gettext_impl)
+
     if validators := getattr(clz, "validators", None):
         _patch_validators(validators, gettext_impl, _visited=_visited)
 
@@ -244,16 +247,25 @@ def _patch_fields(
     """Patch fields of a marshmallow schema class or instance."""
 
     # for each field, patch the field itself and if it's a nested field, patch the nested schema
-    for name, fld in declared_fields.items():
-        enable_i18n(fld, gettext_impl, _visited=_visited)
-        if isinstance(fld, fields.Nested):
-            try:
-                # fld.nested may be a string reference ("self", dotted name, …);
-                # fld.schema resolves it to an actual Schema instance.
-                nested = fld.schema
-                enable_i18n(nested, gettext_impl, _visited)
-            except Exception:
-                log.error(
-                    "Could not resolve nested schema for field %s, skipping",
-                    fld,
-                )
+    for fld in declared_fields.values():
+        _patch_field(fld, gettext_impl, _visited)
+
+
+def _patch_field(
+    fld: fields.Field, gettext_impl: Callable[..., Any], _visited: set
+) -> None:
+    """Patch a single field."""
+    enable_i18n(fld, gettext_impl, _visited=_visited)
+    if isinstance(fld, fields.Nested):
+        try:
+            # fld.nested may be a string reference ("self", dotted name, …);
+            # fld.schema resolves it to an actual Schema instance.
+            nested = fld.schema
+            enable_i18n(nested, gettext_impl, _visited)
+        except Exception:
+            log.error(
+                "Could not resolve nested schema for field %s, skipping",
+                fld,
+            )
+    elif isinstance(fld, fields.List):
+        _patch_field(fld.inner, gettext_impl, _visited)

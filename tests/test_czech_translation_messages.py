@@ -67,7 +67,7 @@ def test_required(applied_translations, babel_cs):
 
 def test_null(applied_translations, babel_cs):
     """Verify Czech error message when ``None`` is passed to a ``Str`` field."""
-    check_field(fields.Str, None, "Pole nemůže být prázdné (null).")
+    check_field(fields.Str, None, "Pole nesmí být prázdné (null).")
 
 
 def test_float_nan(applied_translations, babel_cs):
@@ -75,13 +75,13 @@ def test_float_nan(applied_translations, babel_cs):
     check_field(
         fields.Float,
         "nan",
-        "Speciální numerické hodnoty (jako nan - není číslo, nekonečno) nejsou povoleny.",
+        "Speciální číselné hodnoty (NaN nebo nekonečno) nejsou povoleny.",
     )
 
 
 def test_date(applied_translations, babel_cs):
     """Verify Czech error message when an invalid type is passed to a ``DateTime`` field."""
-    check_field(fields.DateTime, False, "Neplatný typ objektu datetime.")
+    check_field(fields.DateTime, False, "Neplatný objekt typu datetime.")
 
 
 def test_equal(applied_translations, babel_cs):
