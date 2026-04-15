@@ -12,6 +12,7 @@ python extract_translations.py
 
 # for each language, update the messages
 pybabel update -l cs -i translations/messages.pot -d translations
+pybabel update -l sv -i translations/messages.pot -d translations
 pybabel update -l de -i translations/messages.pot -d translations
 
 pybabel compile -d translations
