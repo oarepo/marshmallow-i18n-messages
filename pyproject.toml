@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "marshmallow-i18n-messages"
-version = "0.3.0"
+version = "0.4.0"
 description = "A patch to marshmallow to allow to translate marshmallow messages via GNU gettext"
 readme = "README.md"
 license = { file = "LICENSE" }
