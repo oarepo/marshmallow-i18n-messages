@@ -104,10 +104,28 @@ def _patch_validation_error() -> None:
     setattr(ValidationError, "__init_replaced__", True)
     old_init = ValidationError.__init__
 
-    def new_init(self: ValidationError, messages: Any = None, **kwargs: Any) -> None:
-        if not isinstance(messages, (dict, list)):
-            messages = [messages]
-        old_init(self, messages, **kwargs)  # type: ignore
+    def new_init(self: ValidationError, message: Any = None, **kwargs: Any) -> None:
+        if message is not None and not isinstance(message, (dict, list)):
+            message = [message]
+
+        # backward compatibility - previously the parameter was called "messages"
+        _messages = kwargs.pop("messages", None)
+        if _messages is not None:
+            if not isinstance(_messages, (dict, list)):
+                _messages = [_messages]
+
+        if message and _messages:
+            if isinstance(message, list) and isinstance(_messages, list):
+                message.extend(_messages)
+            elif isinstance(message, dict) and isinstance(_messages, dict):
+                message.update(_messages)
+            else:
+                # ignore as we do not know how to unify
+                pass
+        elif not message:
+            message = _messages
+
+        old_init(self, message, **kwargs)  # type: ignore
 
     ValidationError.__init__ = new_init  # type: ignore
 
